@@ -1,0 +1,42 @@
+HowTo Install php on CentOS7
+### Install php on CentOS7
+@ >>> https://www.tecmint.com/install-php-5-6-on-centos-7/
+
+yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+
+yum install yum-utils
+
+# yum-config-manager --enable remi-php55   [Install PHP 5.5]
+# yum-config-manager --enable remi-php56   [Install PHP 5.6]
+# yum-config-manager --enable remi-php72   [Install PHP 7.2]
+
+### [Install PHP 5.6]
+yum-config-manager --enable remi-php56   
+yum install php php-mcrypt php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo
+
+php -v
+
+
+///////////////////
+HowTo Install MySQL 5.5/6/7 on RHEL/CentOS 5/6/7
+https://samzong.me/2016/07/07/how-to-install-mysql-5-6-on-centos/
+
+yum remove -y mysql-server
+yum remove -y mysql*
+
+yum install http://repo.mysql.com/yum/mysql-5.6-community/el/7/x86_64/mysql-community-release-el7-5.noarch.rpm
+
+yum install -y mysql-community-server
+
+service mysqld start
+
+mysql_secure_installation
+
+systemctl start mysqld.service
+systemctl enable mysqld.service
+
+///////////////////
+HowTo Install httpd on CentOS7
+
+yum install httpd
